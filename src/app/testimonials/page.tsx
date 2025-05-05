@@ -27,7 +27,7 @@ const testimonials = [
 export default function Testimonials() {
   const thumbnails = [videoThumb1, videoThumb2];
   return (
-    <div className="my-10 py-4 max-w-[95%] mx-auto">
+    <div className="my-10 py-4 max-w-[95%]  mx-auto">
       <div className="flex mb-4 flex-col md:flex-row md:justify-between md:items-center">
         <div>
           {/*  */}
