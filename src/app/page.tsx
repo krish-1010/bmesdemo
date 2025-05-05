@@ -1,103 +1,125 @@
+// // import Image from "next/image";
+// import HeroContent from "./components/HeroContent";
+// import Mainform from "./components/MainForm";
+// import SocialProofCard from "./components/SocialProofCard";
+// import Image from "next/image";
+// import herobg from "./../../public/images/hero-bg.jpg";
+
+// export default function Home() {
+//   return (
+//     <div className=" bg-[--color-background]">
+//       <section
+//         className="relative bg-cover bg-center bg-no-repeat"
+//         style={{ backgroundImage: "url('/your-truck-image.jpg')" }}
+//       >
+//         {/* Background Image */}
+//         <Image
+//           src={herobg}
+//           alt="Hero background"
+//           className="object-cover w-[100%] absolute z-[-10] h-[80vh]"
+//           priority
+//         />
+
+//         <HeroContent />
+//         <SocialProofCard />
+//         <Mainform />
+//       </section>
+//     </div>
+//   );
+// }
+
+// app/page.tsx or wherever you're using it
+"use client";
+
+import HeroContent from "./components/HeroContent";
+import Mainform from "./components/MainForm";
+import SocialProofCard from "./components/SocialProofCard";
 import Image from "next/image";
+import herobg from "./../../public/images/hero-bg.jpg";
+import formimage from "./../../public/images/formimage.jpg";
+import Services from "./services/page";
+import Testimonials from "./testimonials/page";
+import FaqSection from "./components/FaqSection";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="bg-[--color-background] ">
+      <section className="relative lg:mx-4">
+        
+        <div className="lg:hidden relative inset-0 -z-10">
+          <Image
+            src={herobg}
+            alt="Hero background"
+            fill
+            className="object-cover"
+            priority
+          />
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+
+        {/* mobile */}
+        <div className="lg:hidden rounded-t-3xl bg-[url('/images/hero-bg.jpg')] bg-cover bg-center pt-10 pb-20 px-4">
+          <HeroContent />
+          <SocialProofCard />
+        </div>
+        <div className="lg:hidden relative z-10 -mt-12 px-4">
+          <Mainform />
+        </div>
+
+        {/* tab - desktop- hero */}
+        <div className="hidden lg:flex lg:flex-col xl:flex-row">
+          <div className="w-3/4 bg-[url('/images/truck.png')] bg-cover bg-center mr-4 flex justify-between lg:w-full h-[80vh] rounded-3xl">
+            <div></div>
+            <div className="mr-0 xl:flex xl:flex-col justify-center lg:max-w-[400px]">
+              <HeroContent />
+              <SocialProofCard />
+            </div>
+          </div>
+
+          <div className="hidden lg:flex lg:justify-between lg:w-full xl:block w-[360px] xl:w-[400px] lg:mt-8 xl:mt-0">
+            <div className="hidden lg:flex  lg:justify-center lg:items-center  xl:hidden w-full ">
+              <Image
+                src={formimage}
+                alt="image"
+                className="lg:w-[60%] rounded-3xl"
+              ></Image>
+            </div>
+            <Mainform />
+          </div>
+        </div>
+      </section>
+
+      {/* <div>----</div> */}
+
+      <div>
+        <Services />
+      </div>
+
+      <div>
+        <Testimonials />
+      </div>
+
+      <div>
+        <FaqSection />
+      </div>
     </div>
   );
+}
+
+{
+  /* <>
+             🚛 Truck Image for tablet/desktop 
+            
+
+            ✍️ Content Column 
+            <div className="w-full  lg:w-1/2 flex flex-col gap-6 items-center lg:items-end text-center lg:text-left">
+              <HeroContent />
+              <SocialProofCard />
+
+              ✅ Show form below on mobile/tablet, side-by-side on desktop 
+              <div className="block lg:hidden w-full">
+                <Mainform />
+              </div>
+            </div>
+          </> 
+*/
 }
